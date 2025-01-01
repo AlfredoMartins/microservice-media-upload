@@ -1,7 +1,7 @@
 import os, gridfs, pika, json
 from flask import Flask, request
-from flask_pymong import PyMongo
-from src.gateway.auth import validate
+from flask_pymongo import PyMongo
+from auth import validate
 from auth_svc import access
 from storage import util
 
