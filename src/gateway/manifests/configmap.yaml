@@ -3,7 +3,4 @@ kind: ConfigMap
 metadata:
   name: gateway-configmap
 data:
-  MYSQL_HOST: host.minikube.internal
-  MYSQL_USER: gateway_user
-  MYSQL_DB: gateway
-  MYSQL_PORT: "3306"
+  AUTH_SVC_ADDRESS: "auth:5000"
