@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: rabbitmq-configmap
 data:
-  PLACEHOLDER: "nothing"
+  PLACEHOLDER: "NONE"
