@@ -10,7 +10,7 @@ server.config["MONGO_URI"] = "mongodb://host.minikube.internal:27017/videos"
 
 mongo = PyMongo(server)
 fs = gridfs.GridFS(mongo.db)
-connection = pika.BlockingConnection(pika.ConnectionParameters("rabbitmq"))
+connection = pika.BlockingConnection(pika.ConnectionParameters("rabbitmq")) # rabbitmq
 channel = connection.channel()
 
 @server.route('/login', methods=["POST"])
@@ -30,7 +30,7 @@ def upload():
 
     if access["admin"]:
         if len(request.files) > 1 or len(request.files) < 1:
-            return "Exactly 1 file required", 400
+            return "Exactly 1 file required.", 400
         
         for _, f in request.files.items():
             err = util.upload(f, fs, channel, access)
@@ -40,7 +40,7 @@ def upload():
             
         return "Success!", 200
     else:
-        return "Not authorized", 401
+        return "Not authorized.", 401
 
 @server.route("/download", methods=["GET"])
 def download():

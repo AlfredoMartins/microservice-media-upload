@@ -4,7 +4,7 @@ def uplaod(f, fs, channel, access):
     try:
         fid = fs.put(f)
     except Exception as err:
-        return "Internal server error", 500
+        return "Internal server error.", 500
     
     message = {
         "video_fid": str(fid),
@@ -24,4 +24,4 @@ def uplaod(f, fs, channel, access):
 
     except:
         fs.delete(fid)
-        return "Internal server error", 500
+        return "Internal server error.", 500
