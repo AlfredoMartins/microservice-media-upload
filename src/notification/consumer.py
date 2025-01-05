@@ -6,6 +6,7 @@ import gridfs
 from convert import to_mp3
 from concurrent.futures import ThreadPoolExecutor
 import logging
+from send import email
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -29,7 +30,7 @@ def main():
             )
             channel = connection.channel()
 
-            video_queue = os.environ.get("VIDEO_QUEUE")
+            video_queue = os.environ.get("MP3_QUEUE")
             if not video_queue:
                 raise ValueError("Environment variable VIDEO_QUEUE is not set.")
             
@@ -39,7 +40,7 @@ def main():
                 def process_message():
                     try:
                         logger.info(f"Received message: {body}")
-                        err = to_mp3.start(body, fs_videos, fs_mp3s, ch)
+                        err = email.notification(body)
                         if err:
                             ch.basic_nack(delivery_tag=method.delivery_tag)
                         else:
