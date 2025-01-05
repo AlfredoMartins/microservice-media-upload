@@ -2,3 +2,4 @@
 storage/__pycache__/
 auth/__pycache__/
 auth_svc/__pycache__/
+test.py

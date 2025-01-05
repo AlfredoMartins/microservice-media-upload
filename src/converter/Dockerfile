@@ -2,7 +2,7 @@ FROM python:3.11-bullseye
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends --no-install-suggests \
-    build-essential ffmpeg\ 
+    build-essential ffmpeg \ 
     && pip install --no-cache-dir --upgrade pip
 
 WORKDIR /app

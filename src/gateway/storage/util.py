@@ -1,10 +1,16 @@
 import pika, json
+import logging
 
-def uplaod(f, fs, channel, access):
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+def upload(f, fs, channel, access):
+
     try:
         fid = fs.put(f)
     except Exception as err:
-        return "Internal server error.", 500
+        logger.info(f"{err}")
+        return "[storage.util.1] Internal server error.", 500
     
     message = {
         "video_fid": str(fid),
@@ -15,13 +21,14 @@ def uplaod(f, fs, channel, access):
     try:
         channel.basic_publish(
             exchange="",
-            routeing_key="video",
+            routing_key="video",
             body=json.dumps(message),
             properties=pika.BasicProperties(
                 delivery_mode=pika.spec.PERSISTENT_DELIVERY_MODE
             ),
         )
 
-    except:
+    except Exception as err:
+        logger.info(f"{err}")
         fs.delete(fid)
-        return "Internal server error.", 500
+        return "[storage.util.2] Internal server error.", 500
