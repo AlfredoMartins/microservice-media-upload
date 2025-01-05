@@ -54,6 +54,7 @@ To install and initialize the MySQL database, run the following command:
 
 ```bash
 mysql -uroot < init.sql
+```
 
 # Setup Instructions
 
