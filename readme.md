@@ -44,7 +44,7 @@ This microservice is designed to efficiently handle media file uploads, includin
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone https://your-repository-url.git
+   git clone https://github.com/AlfredoMartins/microservice-media-upload.git
 
 # Project Setup Documentation
 
