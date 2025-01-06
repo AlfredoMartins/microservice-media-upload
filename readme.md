@@ -1,6 +1,6 @@
 # Network Python-based Microservice for Media File Uploads
 
-This microservice is designed to efficiently handle media file uploads, including audio and video files. It provides various components such as a RESTful API, task queuing, metadata storage, and a relational database. The system is containerized using Docker and orchestrated with Kubernetes for seamless scaling and deployment.
+This microservice is designed to handle media file uploads, including audio and video files. It provides various components such as a RESTful API, task queuing, metadata storage, and a relational database. The system is containerized using Docker and orchestrated with Kubernetes for seamless scaling and deployment.
 
 ## Components
 
